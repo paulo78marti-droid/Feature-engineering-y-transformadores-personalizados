@@ -1,0 +1,4 @@
+# Dependencias para Feature Engineering y Transformadores Personalizados
+scikit-learn>=1.4.0
+pandas>=2.0.0
+numpy>=1.24.0
