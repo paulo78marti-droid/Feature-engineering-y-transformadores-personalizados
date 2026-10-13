@@ -31,8 +31,9 @@ env/
 ENV/
 py_env/
 
-# Jupyter Notebook Checkpoints
+# Jupyter & Pytest Caches
 .ipynb_checkpoints/
+.pytest_cache/
 
 # Environment variables & secrets
 .env

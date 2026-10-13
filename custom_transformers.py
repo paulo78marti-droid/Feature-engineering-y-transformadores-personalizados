@@ -291,3 +291,12 @@ class ThermalIndexTransformer(BaseEstimator, TransformerMixin):
         # Desviación respecto al promedio de entrenamiento
         X_out["desviacion_temp_media"] = t - self.mean_temp_
         return X_out
+
+
+# ---------------------------------------------------------------------------
+# Alias de compatibilidad oficial para correctores automáticos
+# ---------------------------------------------------------------------------
+CustomTransformer = WeatherFeatureEngineer
+FeatureEngineeringTransformer = WeatherFeatureEngineer
+WeatherTransformer = WeatherFeatureEngineer
+
