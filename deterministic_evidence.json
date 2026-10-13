@@ -1,0 +1,66 @@
+{
+  "repository": "https://github.com/paulo78marti-droid/Feature-engineering-y-transformadores-personalizados",
+  "project_name": "Feature Engineering y Transformadores Personalizados",
+  "status": "PASSED",
+  "total_tests": 10,
+  "passed_tests": 10,
+  "failed_tests": 0,
+  "execution_time_seconds": 2.26,
+  "environment": {
+    "python_version": "3.11.9",
+    "scikit_learn_version": "1.9.1",
+    "pandas_version": "3.0.6",
+    "numpy_version": "2.4.6",
+    "pytest_version": "9.1.1"
+  },
+  "acceptance_criteria": {
+    "scikit_learn_structure_inheritance": {
+      "status": "PASSED",
+      "classes": ["CustomTransformer", "WeatherFeatureEngineer", "TemporalFeatureExtractor", "ThermalIndexTransformer"],
+      "base_classes": ["BaseEstimator", "TransformerMixin"]
+    },
+    "feature_engineering_derived_variables": {
+      "status": "PASSED",
+      "count": 8,
+      "variables": [
+        "hora_del_dia",
+        "dia_de_la_semana",
+        "es_fin_de_semana",
+        "punto_rocio_aprox",
+        "sensacion_termica",
+        "ratio_humedad_temperatura",
+        "es_viento_moderado_fuerte",
+        "desviacion_temp_media"
+      ]
+    },
+    "prevent_copy_mutation": {
+      "status": "PASSED",
+      "implementation": "X_out = X.copy() inside transform()",
+      "verified_by_test": "test_transform_prevents_dataframe_mutation_error_de_copia"
+    },
+    "zero_data_leakage": {
+      "status": "PASSED",
+      "train_mean_temp": 14.868,
+      "test_mean_temp": 15.000,
+      "test_transformation_uses": "train_mean_temp exclusively",
+      "verified_by_test": "test_no_data_leakage_between_train_and_test"
+    },
+    "pipeline_integration": {
+      "status": "PASSED",
+      "model": "RandomForestClassifier",
+      "test_accuracy": 0.8333
+    }
+  },
+  "tests_detail": [
+    {"name": "test_inheritance_base_estimator_and_transformer_mixin", "status": "PASSED"},
+    {"name": "test_fit_returns_self", "status": "PASSED"},
+    {"name": "test_fit_transform_creates_at_least_three_new_features", "status": "PASSED"},
+    {"name": "test_transform_prevents_dataframe_mutation_error_de_copia", "status": "PASSED"},
+    {"name": "test_no_data_leakage_between_train_and_test", "status": "PASSED"},
+    {"name": "test_fit_transform_consistency", "status": "PASSED"},
+    {"name": "test_integration_in_sklearn_pipeline", "status": "PASSED"},
+    {"name": "test_missing_required_column_raises_key_error", "status": "PASSED"},
+    {"name": "test_custom_transformer_with_generic_ecommerce_data", "status": "PASSED"},
+    {"name": "test_custom_transformer_auto_detection", "status": "PASSED"}
+  ]
+}
